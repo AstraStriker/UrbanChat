@@ -1,4 +1,5 @@
 import 'package:chat_app/Screens/Signup/components/social_icon.dart';
+import 'package:chat_app/Screens/Signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../componenets/already_have_an_account_acheck.dart';
@@ -46,14 +47,14 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen();
+                      return SignUpScreen();
                     },
                   ),
                 );
               },
             ),
-            OrDivider(),
-            Row(
+            //OrDivider(),
+            /*Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SocalIcon(
@@ -69,7 +70,7 @@ class Body extends StatelessWidget {
                   press: () {},
                 ),
               ],
-            )
+            )*/
           ],
         ),
       ),

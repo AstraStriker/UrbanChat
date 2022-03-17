@@ -1,3 +1,4 @@
+import 'package:chat_app/Screens/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../componenets/already_have_an_account_acheck.dart';
@@ -20,7 +21,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               "LOGIN",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
@@ -48,7 +49,7 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return SignUpScreen();
+                      return LoginScreen();
                     },
                   ),
                 );

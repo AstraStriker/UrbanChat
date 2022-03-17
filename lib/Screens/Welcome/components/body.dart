@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../componenets/rounded_button.dart';
 import '../../../constants.dart';
+import '../../Forgetpass/forget_pass.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
 import 'background.dart';
@@ -16,7 +17,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               "WELCOME TO UChat",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
@@ -28,12 +29,14 @@ class Body extends StatelessWidget {
             SizedBox(height: size.height * 0.05),
             RoundedButton(
               text: "LOGIN",
+              color: kPrimaryColor,
+              textColor: Colors.white,
               press: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginScreen();
+                      return SignUpScreen();
                     },
                   ),
                 );
@@ -48,7 +51,22 @@ class Body extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return SignUpScreen();
+                      return LoginScreen();
+                    },
+                  ),
+                );
+              },
+            ),
+            RoundedButton(
+              text: "FORGET PASSWORD",
+              color: Color(0xFF448FBB),
+              textColor: Colors.white,
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Forgetpass();
                     },
                   ),
                 );
