@@ -37,6 +37,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'UChat',
       theme: ThemeData(
         backgroundColor: Color(0xFF242331),
