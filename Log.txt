@@ -1,0 +1,23 @@
+Branch: Development
+Updates Log:
+
+Previous:
+-> Created: Project
+-> Added: Login Screen
+-> Added: SignUp Screen
+-> Added: Welcome Screen
+-> Added: Forget Password Screen
+-> Added: Splash Screen
+
+23 March 2022
+-> Added : Chat Screen
+-> Added : Home Screen
+-> Updated : Login Button Response
+-> Added : Home to Chat Screen Navigation
+
+TODO:Future Updates
+-> Firebase Integration
+-> Firebase Authentication
+-> Update: Users to and from Firebase
+-> Update: Add Support for sending Media
+-> Update: Login,Welcome and Signup UI
