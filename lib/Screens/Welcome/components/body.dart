@@ -1,8 +1,10 @@
+import 'dart:js';
+
+import 'package:chat_app/Screens/Forgetpass/forget_pass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../componenets/rounded_button.dart';
 import '../../../constants.dart';
-import '../../Forgetpass/forget_pass.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
 import 'background.dart';
@@ -57,22 +59,20 @@ class Body extends StatelessWidget {
                 );
               },
             ),
-            RoundedButton(
-              text: "FORGET PASSWORD",
-              color: Color(0xFF448FBB),
-              textColor: Colors.white,
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Forgetpass();
-                    },
-                  ),
-                );
-              },
-            ),
+            _forgetPassword(),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _forgetPassword() {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        child: const Text(
+          'Forget Password ?',
+          style: TextStyle(color: Colors.grey),
         ),
       ),
     );
