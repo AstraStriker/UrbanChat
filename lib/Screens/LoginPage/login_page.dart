@@ -1,5 +1,6 @@
 //Packages
 import 'package:chat_app/Widgets/gradient_bar.dart';
+import 'package:chat_app/Widgets/rounded_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:get_it/get_it.dart';
@@ -80,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       height: _deviceHeight * 0.10,
       child: Text(
-        'UrbanChat',
+        'UrbanChat\u2122',
         style: TextStyle(
           color: Colors.black,
           fontSize: 40,
@@ -134,6 +135,7 @@ class _LoginPageState extends State<LoginPage> {
         if (_loginFormKey.currentState!.validate()) {
           _loginFormKey.currentState!.save();
           _auth.loginUsingEmailAndPassword(_email!, _password!);
+
         }
       },
     );
@@ -141,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _registerAccountLink() {
     return GestureDetector(
-      onTap: () => _navigation.navigatorToRoute('/register'),
+      onTap: () => _navigation.navigateToRoute('/register'),
       child: Container(
         child: Text(
           'Don\'t have an account?',

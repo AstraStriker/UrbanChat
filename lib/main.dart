@@ -1,5 +1,6 @@
 import 'package:chat_app/Screens/HomeScreen/home_screen.dart';
 import 'package:chat_app/Screens/LoginPage/login_page.dart';
+import 'package:chat_app/Screens/Register/register_page.dart';
 import 'package:chat_app/Screens/Welcome/welcome_screen.dart';
 import 'package:chat_app/Screens/SplashPage/splash_page.dart';
 import 'package:chat_app/providers/authentication-provider.dart';
@@ -47,7 +48,8 @@ class MyApp extends StatelessWidget {
           initialRoute: '/login',
           routes: {
             '/login': (BuildContext _context) => LoginPage(),
-            '/home': (BuildContext _context) => HomeScreen(),
+            '/home': (BuildContext _context) => const HomeScreen(),
+            '/register': (BuildContext _context) => RegisterPage(),
           },
           //home: Welcomescreen(),
         )

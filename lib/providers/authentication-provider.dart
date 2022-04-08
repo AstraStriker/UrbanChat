@@ -18,20 +18,20 @@ class AuthenticationProvider extends ChangeNotifier {
     _navigation = GetIt.instance.get<NavigationService>();
     _databaseService = GetIt.instance.get<Databaseservices>();
 
-    _auth.authStateChanges().listen((_user) {
+
+    _auth.authStateChanges().listen((_user) async {
       if (_user != null) {
-        _databaseService.getUser(_user.uid).then(
+        await _databaseService.updateUserDateAndTime(_user.uid);
+        await _databaseService.getUser(_user.uid).then(
           (_snapshot) {
             Map<String, dynamic> _userData = _snapshot.data()! as Map<String, dynamic>;
-            user = ChatUser.fromJSON(
-              _userData
-            );
-            _navigation.removeAndNavigatorToRoute('/home');
+            user = ChatUser.fromJSON(_userData);
+            _navigation.removeAndNavigateToRoute('/home');
           },
         );
         print(user.toMap());
       } else {
-        print('Not Logged In');
+        _navigation.removeAndNavigateToRoute('/login');
       }
     });
   }
@@ -42,7 +42,6 @@ class AuthenticationProvider extends ChangeNotifier {
       await _auth.signInWithEmailAndPassword(
           email: _email, password: _password
       );
-      print(_email + "\n" + _password);
     } on FirebaseAuthException {
       print("Error logging-in to Firebase");
     } catch (e) {
@@ -51,9 +50,21 @@ class AuthenticationProvider extends ChangeNotifier {
   }
 
 
-  Future<void> signOut() async
+  Future<void> logOut() async
   {
-    await signOut();
+    try{
+      await _auth.signOut();
+    } catch (e) {
+      print(e);
+    }
   }
 
+  Future<String?> registerUserUsingEmailAndPassword(String _email, String _password) async {
+    try{
+      UserCredential _credentials= await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
+      return _credentials.user!.uid;
+    }catch(e){
+      print(e);
+    }
+    }
 }

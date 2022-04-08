@@ -44,7 +44,7 @@ class RecentChats extends StatelessWidget {
                         children: [
                           CircleAvatar(
                             radius: 35,
-                            backgroundImage: AssetImage(msg.sender.imageUrl),
+                            backgroundImage: AssetImage(msg.sender.imageUrl.toString()),
                           ),
                           const SizedBox(
                             width: 10,
@@ -53,7 +53,7 @@ class RecentChats extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                msg.sender.name,
+                                msg.sender.name.toString(),
                                 style: const TextStyle(
                                   color: Colors.grey,
                                   fontSize: 15,

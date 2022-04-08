@@ -16,7 +16,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: (_value) => onSaved(_value!),
-      cursorColor: Colors.black,
+      cursorColor: Colors.blue,
       style: TextStyle(color: Colors.black),
       obscureText: obscureText,
       validator: (_value) {
@@ -26,8 +26,8 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: Colors.white,
         filled: true,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(30.0),
+          borderSide: const BorderSide( color: Colors.redAccent,width: 3,style: BorderStyle.solid),
         ),
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.black54),
@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide.none,
+          borderSide: BorderSide( color: Colors.blue,width: 1,style: BorderStyle.solid),
         ),
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.black54),

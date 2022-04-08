@@ -16,19 +16,19 @@ class Message{
   //You
   //TODO get from firebase
   static final ChatUser currentUser = ChatUser(
-    name: 'Current User',uid: '0' ,imageUrl: 'images/User.png', email: ''
+    name: 'Current User',uid: '0' ,imageUrl: 'images/User.png', email: '', lastSeen: DateTime.now()
   );
 
   //other users
   //TODO remove this after fetching from firebase
   static final ChatUser ankit = ChatUser(
-      name: 'Ankit',uid: '1' ,imageUrl: 'assets/images/User.png', email: ''
+      name: 'Ankit',uid: '1' ,imageUrl: 'assets/images/User.png', email: '', lastSeen: DateTime.now()
   );
   static final ChatUser vaibhaw = ChatUser(
-      name: 'Vaibhaw',uid: '2' ,imageUrl: 'assets/images/User.png', email: ''
+      name: 'Vaibhaw',uid: '2' ,imageUrl: 'assets/images/User.png', email: '', lastSeen: DateTime.now()
   );
   static final ChatUser omar = ChatUser(
-      name: 'Omar',uid: '3' ,imageUrl: 'assets/images/User.png', email: ''
+      name: 'Omar',uid: '3' ,imageUrl: 'assets/images/User.png', email: '', lastSeen: DateTime.now()
   );
 
   //online user

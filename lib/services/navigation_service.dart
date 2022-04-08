@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 class NavigationService {
   static GlobalKey<NavigatorState> navigatorKey =
-      new GlobalKey<NavigatorState>();
-  void removeAndNavigatorToRoute(String _route) {
+  new GlobalKey<NavigatorState>();
+
+  void removeAndNavigateToRoute(String _route) {
     navigatorKey.currentState?.popAndPushNamed(_route);
   }
 
-  void navigatorToRoute(String _route) {
+  void navigateToRoute(String _route) {
     navigatorKey.currentState?.pushNamed(_route);
   }
 
@@ -19,6 +20,10 @@ class NavigationService {
         },
       ),
     );
+  }
+
+  String? getCurrentRoute() {
+    return ModalRoute.of(navigatorKey.currentState!.context)?.settings.name!;
   }
 
   void goBack() {

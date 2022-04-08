@@ -93,12 +93,12 @@ class _ChatScreenState extends State<ChatScreen> {
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.black,
           elevation: 0.0,
-          title: Center(child: Text(widget.user.name)),
+          title: Center(child: Text(widget.user.name.toString())),
           actions: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: CircleAvatar(
-                backgroundImage: AssetImage(widget.user.imageUrl),
+                backgroundImage: AssetImage(widget.user.imageUrl.toString()),
               ),
             )
           ],
