@@ -3,10 +3,10 @@ import 'user_model.dart';
 
 class Message{
 
-  final User sender;
+  final ChatUser sender;
   final String time; //TODO user dataTime or firebase time here instead
   final String text;
-  final bool isRead;
+  bool isRead;
 
   //construct
   Message(
@@ -15,25 +15,25 @@ class Message{
 
   //You
   //TODO get from firebase
-  static final User currentUser = User(
-    name: 'Current User',id: 0 ,imageUrl: 'images/User.png'
+  static final ChatUser currentUser = ChatUser(
+    name: 'Current User',uid: '0' ,imageUrl: 'images/User.png', email: ''
   );
 
   //other users
   //TODO remove this after fetching from firebase
-  static final User ankit = User(
-      name: 'Ankit',id: 1 ,imageUrl: 'assets/images/User.png'
+  static final ChatUser ankit = ChatUser(
+      name: 'Ankit',uid: '1' ,imageUrl: 'assets/images/User.png', email: ''
   );
-  static final User vaibhaw = User(
-      name: 'Vaibhaw',id: 2 ,imageUrl: 'assets/images/User.png'
+  static final ChatUser vaibhaw = ChatUser(
+      name: 'Vaibhaw',uid: '2' ,imageUrl: 'assets/images/User.png', email: ''
   );
-  static final User omar = User(
-      name: 'Omar',id: 3 ,imageUrl: 'assets/images/User.png'
+  static final ChatUser omar = ChatUser(
+      name: 'Omar',uid: '3' ,imageUrl: 'assets/images/User.png', email: ''
   );
 
   //online user
   //TODO get online users from firebase
-  static List<User> online = [ ankit, vaibhaw, omar];
+  static List<ChatUser> online = [ ankit, vaibhaw, omar];
 
   //Message List for home Screen
   //TODO get chats from firebase

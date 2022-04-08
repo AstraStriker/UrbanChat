@@ -70,7 +70,9 @@ class Body extends StatelessWidget {
 
   Widget _forgetPassword() {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+
+      },
       child: Container(
         child: const Text(
           'Forget Password ?',
