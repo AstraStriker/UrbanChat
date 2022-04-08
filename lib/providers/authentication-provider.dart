@@ -18,6 +18,8 @@ class AuthenticationProvider extends ChangeNotifier {
     _navigation = GetIt.instance.get<NavigationService>();
     _databaseService = GetIt.instance.get<Databaseservices>();
 
+    // _auth.signOut();
+
 
     _auth.authStateChanges().listen((_user) async {
       if (_user != null) {
