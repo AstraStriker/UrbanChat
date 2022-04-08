@@ -21,15 +21,9 @@ void main() {
   );
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -40,21 +34,22 @@ class _MyAppState extends State<MyApp> {
               }
           )
         ],
-      child:   MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter',
-        theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
-        ),
-        navigatorKey: NavigationService.navigatorKey,
-        initialRoute: '/login',
-        routes: {
-        '/login': (BuildContext _context) => Welcomescreen(),
-        },
-        //home: Welcomescreen(),
+        child:   MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter',
+          theme: ThemeData(
+            primaryColor: kPrimaryColor,
+            scaffoldBackgroundColor: Colors.white,
+          ),
+          navigatorKey: NavigationService.navigatorKey,
+          initialRoute: '/login',
+          routes: {
+            '/login': (BuildContext _context) => Welcomescreen(),
+          },
+          //home: Welcomescreen(),
         )
     );
   }
 }
+
 

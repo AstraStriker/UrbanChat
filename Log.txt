@@ -15,6 +15,10 @@ Previous:
 -> Updated : Login Button Response
 -> Added : Home to Chat Screen Navigation
 
+08 April 2022
+-> Added: Firebase Authentication
+-> Updated: Login Screen changed to Stateful for Fetching input data realtime
+
 TODO:Future Updates
 -> Firebase Integration
 -> Firebase Authentication

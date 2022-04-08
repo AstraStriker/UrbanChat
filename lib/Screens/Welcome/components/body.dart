@@ -3,7 +3,7 @@
 import 'package:chat_app/Screens/Forgetpass/forget_pass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../componenets/rounded_button.dart';
+import '../../../components/rounded_button.dart';
 import '../../../constants.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';

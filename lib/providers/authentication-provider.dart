@@ -24,17 +24,10 @@ class AuthenticationProvider extends ChangeNotifier {
           (_snapshot) {
             Map<String, dynamic> _userData =
                 _snapshot.data()! as Map<String, dynamic>;
-            user = ChatUser.fromJSON(
-              {
-                "uid": _user.uid,
-                "name": _userData["name"],
-                "email": _userData["email"],
-                "image": _userData["image"]
-              },
-            );
+            user = ChatUser.fromJSON(_userData);
           },
         );
-        print(user);
+        print(user.toMap());
       } else {
         print('Not Logged In');
       }
@@ -46,7 +39,7 @@ class AuthenticationProvider extends ChangeNotifier {
     try {
       await _auth.signInWithEmailAndPassword(
           email: _email, password: _password);
-      print(_auth.currentUser);
+      print(user.toMap());
     } on FirebaseAuthException {
       print("Error logging-in to Firebase");
     } catch (e) {

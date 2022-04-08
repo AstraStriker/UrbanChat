@@ -2,10 +2,10 @@ import 'package:chat_app/Screens/Signup/components/social_icon.dart';
 import 'package:chat_app/Screens/Signup/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../componenets/already_have_an_account_acheck.dart';
-import '../../../componenets/rounded_button.dart';
-import '../../../componenets/rounded_input_field.dart';
-import '../../../componenets/rounded_password_field.dart';
+import '../../../components/already_have_an_account_acheck.dart';
+import '../../../components/rounded_button.dart';
+import '../../../components/rounded_input_field.dart';
+import '../../../components/rounded_password_field.dart';
 import '../../Login/components/background.dart';
 import '../../Login/login_screen.dart';
 import 'or_driver.dart';
@@ -35,10 +35,18 @@ class _BodyState extends State<Body> {
             ),
             RoundedInputField(
               hintText: "Your Email",
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+
+                });
+              },
             ),
             RoundedPasswordField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+
+                });
+              },
             ),
             RoundedButton(
               text: "SIGNUP",
