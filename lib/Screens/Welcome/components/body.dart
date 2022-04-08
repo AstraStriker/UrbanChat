@@ -75,7 +75,9 @@ class _BodyState extends State<Body> {
 
   Widget _forgetPassword() {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+
+      },
       child: Container(
         child: const Text(
           'Forget Password ?',

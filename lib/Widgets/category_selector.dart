@@ -14,6 +14,13 @@ class _CategorySelectorState extends State<CategorySelector> {
   int selectedIndex = 0;
   List<String> categories = ['Chats', 'Online', 'Settings'];
 
+
+  int getIndex()
+  {
+    return selectedIndex;
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Container(

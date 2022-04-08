@@ -6,7 +6,7 @@ import '../../Models/user_model.dart';
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key, required this.user}) : super(key: key);
 
-  final User user;
+  final ChatUser user;
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -130,7 +130,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             itemBuilder: (BuildContext context, int index) {
                               Message message = Message.messages[index];
                               bool isMe =
-                                  message.sender.id == Message.currentUser.id
+                                  message.sender.uid == Message.currentUser.uid
                                       ? true
                                       : false;
                               return _buildMessage(message, isMe);
