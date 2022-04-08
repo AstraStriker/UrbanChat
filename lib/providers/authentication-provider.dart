@@ -8,23 +8,25 @@ import '../services/navigation_service.dart';
 
 class AuthenticationProvider extends ChangeNotifier {
   late final FirebaseAuth _auth;
-  late final NavigationService _navigationService;
+  late final NavigationService _navigation;
   late final Databaseservices _databaseService;
 
   late ChatUser user;
 
   AuthenticationProvider() {
     _auth = FirebaseAuth.instance;
-    _navigationService = GetIt.instance.get<NavigationService>();
+    _navigation = GetIt.instance.get<NavigationService>();
     _databaseService = GetIt.instance.get<Databaseservices>();
 
     _auth.authStateChanges().listen((_user) {
       if (_user != null) {
         _databaseService.getUser(_user.uid).then(
           (_snapshot) {
-            Map<String, dynamic> _userData =
-                _snapshot.data()! as Map<String, dynamic>;
-            user = ChatUser.fromJSON(_userData);
+            Map<String, dynamic> _userData = _snapshot.data()! as Map<String, dynamic>;
+            user = ChatUser.fromJSON(
+              _userData
+            );
+            _navigation.removeAndNavigatorToRoute('/home');
           },
         );
         print(user.toMap());
@@ -34,16 +36,24 @@ class AuthenticationProvider extends ChangeNotifier {
     });
   }
 
-  Future<void> loginUsingEmailAndPassword(
-      String _email, String _password) async {
+  Future<void> loginUsingEmailAndPassword(String _email, String _password)
+  async {
     try {
       await _auth.signInWithEmailAndPassword(
-          email: _email, password: _password);
-      print(user.toMap());
+          email: _email, password: _password
+      );
+      print(_email + "\n" + _password);
     } on FirebaseAuthException {
       print("Error logging-in to Firebase");
     } catch (e) {
       print(e);
     }
   }
+
+
+  Future<void> signOut() async
+  {
+    await signOut();
+  }
+
 }

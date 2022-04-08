@@ -58,26 +58,22 @@ class _BodyState extends State<Body> {
               hintText: "Your Email",
               onChanged: (value) {
                 setState(() {
-                  _email = value;
+
                 });
               },
             ),
             RoundedPasswordField(
               onChanged: (value) {
                 setState(() {
-                  _password = value;
+
                 });
               },
             ),
             RoundedButton(
               text: "LOGIN",
               press: () {
-
+                _auth.loginUsingEmailAndPassword(_email!, _password!);
                 //todo add authentication before login user in
-                setState(() {
-                  _auth.loginUsingEmailAndPassword(_email!, _password!);
-                });
-
                 //todo get current user details before logging in
                 Navigator.push(
                   context,
