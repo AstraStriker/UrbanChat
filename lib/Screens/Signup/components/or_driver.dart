@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class OrDivider extends StatelessWidget {
+class OrDivider extends StatefulWidget {
+  @override
+  State<OrDivider> createState() => _OrDividerState();
+}
+
+class _OrDividerState extends State<OrDivider> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

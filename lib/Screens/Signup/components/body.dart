@@ -10,7 +10,12 @@ import '../../Login/components/background.dart';
 import '../../Login/login_screen.dart';
 import 'or_driver.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

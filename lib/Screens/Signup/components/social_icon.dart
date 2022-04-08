@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../constants.dart';
 
-class SocalIcon extends StatelessWidget {
+class SocalIcon extends StatefulWidget {
   final String iconSrc;
   final void Function()? press;
   const SocalIcon({
@@ -12,9 +12,14 @@ class SocalIcon extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<SocalIcon> createState() => _SocalIconState();
+}
+
+class _SocalIconState extends State<SocalIcon> {
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: widget.press,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
         padding: EdgeInsets.all(20),
@@ -26,7 +31,7 @@ class SocalIcon extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: SvgPicture.asset(
-          iconSrc,
+          widget.iconSrc,
           height: 20,
           width: 20,
         ),
