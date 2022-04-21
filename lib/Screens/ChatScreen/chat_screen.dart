@@ -34,7 +34,7 @@ class _ChatScreenState extends State<ChatScreen> {
             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Text(
-            message.time,
+            message.time.toString(),
             style: const TextStyle(
               color: Colors.grey,
               fontSize: 15,
@@ -132,7 +132,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             itemBuilder: (BuildContext context, int index) {
                               Message message = Message.messages[index];
                               bool isMe =
-                                  message.sender.uid == Message.currentUser.uid
+                                  message.sender?.uid == Message.currentUser.uid
                                       ? true
                                       : false;
                               return _buildMessage(message, isMe);
