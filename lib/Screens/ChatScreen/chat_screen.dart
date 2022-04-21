@@ -1,3 +1,5 @@
+import 'package:chat_app/Widgets/gradient_bg.dart';
+
 import '../../Models/message_model.dart';
 import '../../Widgets/gradient_bar.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return GradientTop(
+    return GradientBg(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
