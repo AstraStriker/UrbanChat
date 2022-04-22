@@ -1,9 +1,11 @@
 import 'package:chat_app/Widgets/gradient_bg.dart';
+import 'package:chat_app/providers/authentication-provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../Models/message_model.dart';
-import '../../Widgets/gradient_bar.dart';
 import 'package:flutter/material.dart';
 import '../../Models/user_model.dart';
+import '../../providers/chats_page_provider.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key, required this.user}) : super(key: key);
@@ -15,6 +17,10 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+
+  late AuthenticationProvider _auth;
+  late ChatPageProvider _pageProvider;
+
   _buildMessage(Message message, bool isMe) {
     return Container(
       margin: isMe
@@ -88,6 +94,16 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _auth = Provider.of<AuthenticationProvider>(context);
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ChatPageProvider>(create: (_) => ChatPageProvider(_auth),),
+      ],
+      child: _buildUI(),
+    );
+  }
+
+  Widget _buildUI() {
     return GradientBg(
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -107,45 +123,47 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
         body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
-            children: [
-              Expanded(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30)),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
+          child: Expanded(
+            child: Column(
+              children: [
+                Expanded(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30)),
                           ),
-                          child: ListView.builder(
-                            reverse: true,
-                            padding: const EdgeInsets.only(top: 15),
-                            itemCount: Message.messages.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              Message message = Message.messages[index];
-                              bool isMe =
-                                  message.sender?.uid == Message.currentUser.uid
-                                      ? true
-                                      : false;
-                              return _buildMessage(message, isMe);
-                            },
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30),
+                            ),
+                            child: ListView.builder(
+                              reverse: true,
+                              padding: const EdgeInsets.only(top: 15),
+                              itemCount: Message.messages.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                Message message = Message.messages[index];
+                                bool isMe =
+                                message.sender.uid == Message.currentUser.uid
+                                    ? true
+                                    : false;
+                                return _buildMessage(message, isMe);
+                              },
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    _buildMessageComposer(),
-                  ],
-                ),
-              )
-            ],
+                      _buildMessageComposer(),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

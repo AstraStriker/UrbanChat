@@ -1,4 +1,4 @@
-import '../Models/message_model.dart';
+import 'chat_message_model.dart';
 import '../Models/user_model.dart';
 
 //todo create new chat_message model to comply with updates code
@@ -9,7 +9,7 @@ class Chat {
   final bool activity;
   final bool group;
   final List<ChatUser> members;
-  List<Message> messages;
+  List<ChatMessage> messages;
   late final List<ChatUser> _recipients;
 
   Chat(
@@ -22,7 +22,7 @@ class Chat {
     _recipients = members.where((_i) => _i.uid != currentUserUid).toList();
   }
 
-  List<ChatUser> recipients(){
+  List<ChatUser> recipients() {
     return _recipients;
   }
 
