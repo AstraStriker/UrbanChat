@@ -10,14 +10,7 @@ import 'services/navigation_service.dart';
 
 void main() {
   runApp(
-    SplashPage(
-      key: UniqueKey(),
-      onInitializationComplete: () {
-        runApp(
-          const MyApp(),
-        );
-      },
-    ),
+   const MyApp()
   );
 }
 
