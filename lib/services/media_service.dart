@@ -9,5 +9,6 @@ class MediaService {
     if (_result != null) {
       return _result.files[0];
     }
+    return null;
   }
 }

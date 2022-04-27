@@ -1,5 +1,5 @@
 import 'chat_message_model.dart';
-import '../Models/user_model.dart';
+import '../Models/chat_user.dart';
 
 //todo create new chat_message model to comply with updates code
 
@@ -34,7 +34,7 @@ class Chat {
 
   String? imageURL() {
     return !group
-        ? _recipients.first.imageUrl
+        ? _recipients.first.imageURL
         : "https://www.freeiconspng.com/thumbs/group-png/group-of-people-in-a-formation-23.png";
   }
 }

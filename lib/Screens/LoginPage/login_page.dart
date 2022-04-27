@@ -9,7 +9,7 @@ import 'package:get_it/get_it.dart';
 //Services
 import '../../Widgets/custom_input_fields.dart';
 import '../../Widgets/rounded_button.dart';
-import '../../providers/authentication-provider.dart';
+import '../../providers/authentication_provider.dart';
 import '../../services/navigation_service.dart';
 import '../../Widgets/gradient_bg.dart';
 
@@ -135,7 +135,6 @@ class _LoginPageState extends State<LoginPage> {
         if (_loginFormKey.currentState!.validate()) {
           _loginFormKey.currentState!.save();
           _auth.loginUsingEmailAndPassword(_email!, _password!);
-
         }
       },
     );

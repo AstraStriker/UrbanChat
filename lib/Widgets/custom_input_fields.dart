@@ -15,6 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+
       onSaved: (_value) => onSaved(_value!),
       cursorColor: Colors.blue,
       style: TextStyle(color: Colors.black),
@@ -59,7 +60,7 @@ class CustomTextField extends StatelessWidget {
       style: TextStyle(color: Colors.black),
       obscureText: obscureText,
       decoration: InputDecoration(
-        fillColor: Colors.white,
+        fillColor: Colors.transparent,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),

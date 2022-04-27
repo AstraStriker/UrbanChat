@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
@@ -42,21 +44,23 @@ class RoundedImageFile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final File _file = File(image.path!);
     return Container(
-      width: size,
       height: size,
+      width: size,
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage(image.path!),
+          image: FileImage(_file),
         ),
-        borderRadius: BorderRadius.all(Radius.circular(size)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(size),
+        ),
         color: Colors.black,
       ),
     );
   }
 }
-
 class RoundedImageNetworkWithStatusIndicator extends RoundedImageNetwork {
   final bool isActive;
 

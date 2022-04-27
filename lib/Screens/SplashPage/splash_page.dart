@@ -1,3 +1,4 @@
+import 'package:chat_app/Widgets/gradient_bg.dart';
 import 'package:chat_app/services/database_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -41,21 +42,24 @@ class _SplashPageState extends State<SplashPage> {
       title: 'UChat',
       theme: ThemeData(
         backgroundColor: Color(0xFF242331),
-        scaffoldBackgroundColor: Color(0xFF242331),
+
       ),
-      home: Scaffold(
-          body: Center(
-        child: Container(
-          height: 200,
-          width: 200,
-          decoration: const BoxDecoration(
-              // ignore: prefer_const_constructors
-              image: DecorationImage(
-            fit: BoxFit.contain,
-            image: AssetImage('assets/images/logo.png'),
-          )),
-        ),
-      )),
+      home: GradientBg(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+            body: Center(
+          child: Container(
+            height: 200,
+            width: 200,
+            decoration: const BoxDecoration(
+                // ignore: prefer_const_constructors
+                image: DecorationImage(
+              fit: BoxFit.contain,
+              image: AssetImage('assets/images/logo.png'),
+            )),
+          ),
+        )),
+      ),
     );
   }
 
@@ -72,11 +76,11 @@ class _SplashPageState extends State<SplashPage> {
     GetIt.instance.registerSingleton<MediaService>(
       MediaService(),
     );
-    GetIt.instance.registerSingleton<CloudStorageServices>(
-      CloudStorageServices(),
+    GetIt.instance.registerSingleton<CloudStorageService>(
+      CloudStorageService(),
     );
-    GetIt.instance.registerSingleton<Databaseservices>(
-      Databaseservices(),
+    GetIt.instance.registerSingleton<DatabaseService>(
+      DatabaseService(),
     );
   }
 }
