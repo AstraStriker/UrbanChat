@@ -5,7 +5,6 @@ import 'package:chat_app/Screens/SplashPage/splash_page.dart';
 import 'package:chat_app/providers/authentication_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'constants.dart';
 import 'Screens/SplashPage/splash_page.dart';
 import 'services/navigation_service.dart';
 
@@ -39,7 +38,6 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Flutter',
           theme: ThemeData(
-            primaryColor: kPrimaryColor,
             scaffoldBackgroundColor: Colors.white,
           ),
           navigatorKey: NavigationService.navigatorKey,
